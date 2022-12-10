@@ -1,15 +1,34 @@
 import pyautogui as pg
 import time
 import os
+import tkinter as tk
 
 #place the cursor in the whatsapp chat windows before executing the code
-no_of_participants = int(input("Enter the number of participants : "))
+def autoTagger():
 
-time.sleep(5)
-for i in range(no_of_participants - 1):
-    pg.write('@')
-    if i > 0:
-        pg.press('down')
-    pg.press('enter')
-    time.sleep(0.2)
+    time.sleep(5)
+    for i in range(int(npVariable.get()) - 1):
+        pg.write('@')
+        if i > 0:
+            pg.press('down')
+        pg.press('enter')
+        time.sleep(0.2)
+
+
+
+
+windowMain = tk.Tk(className=' Auto Tagger')
+windowMain.geometry("400x200")
+npVariable = tk.StringVar()
+
+label = tk.Label(windowMain, text="No of Participants")
+npEntry = tk.Entry(windowMain, textvariable=npVariable)
+btnTag = tk.Button(windowMain, text="Tag Everyone", command=autoTagger)
+btnTag.config(width=20, height=2)
+
+label.pack()
+npEntry.pack()
+btnTag.pack()
+windowMain.mainloop()
+
 
