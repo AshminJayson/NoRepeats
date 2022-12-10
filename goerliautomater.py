@@ -31,11 +31,13 @@ def seleniumRun():
     #         fix_hairline=True,
     #         )       
 
-    driver.get(url)
-    timeout = 3
+    driver.get("https://goerlifaucet.com/")
+    timeout = 5
 
     element_present = EC.presence_of_element_located((By.ID, 'main'))
     WebDriverWait(driver, timeout).until(element_present)
+
+    input()
 
 
 
