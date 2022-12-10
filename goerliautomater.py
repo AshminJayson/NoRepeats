@@ -7,7 +7,7 @@ import webbrowser
 url = "https://goerlifaucet.com/"
 
 webbrowser.open(url)
-time.sleep(2)
+time.sleep(5)
 
 for i in range(6):
     pg.press('tab')
