@@ -33,12 +33,10 @@ def seleniumRun():
 
     driver.get(url)
     timeout = 3
-    try:
-        element_present = EC.presence_of_element_located((By.ID, 'main'))
-        WebDriverWait(driver, timeout).until(element_present)
-    except TimeoutException as tr:
-        print("Timed out waiting for page to load")
-        return False
+
+    element_present = EC.presence_of_element_located((By.ID, 'main'))
+    WebDriverWait(driver, timeout).until(element_present)
+
 
 
 
@@ -54,7 +52,12 @@ def nativeRun():
     pg.press('tab')
     pg.press('enter')
 
+    print("---------------------------------------\n Successfully initiated transaction")
+
 
 if __name__ == '__main__':
-    if not seleniumRun():
+    try:
+        seleniumRun()
+    except TimeoutException as tr:
+        print("Timed out waiting for page to load")
         nativeRun()
