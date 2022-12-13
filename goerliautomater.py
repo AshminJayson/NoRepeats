@@ -48,7 +48,6 @@ def nativeRun():
 
     for i in range(6):
         pg.press('tab')
-
     time.sleep(1)
     pg.write('0xD726291d19d4DB8f2e071361F04227B23662fD34')
     pg.press('tab')
@@ -59,7 +58,10 @@ def nativeRun():
 
 if __name__ == '__main__':
     try:
+        a=6/0
         seleniumRun()
     except TimeoutException as tr:
         print("Timed out waiting for page to load")
+        nativeRun()
+    except:
         nativeRun()

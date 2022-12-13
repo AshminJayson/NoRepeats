@@ -7,12 +7,17 @@ import tkinter as tk
 def autoTagger():
 
     time.sleep(5)
-    for i in range(int(npVariable.get()) - 1):
-        pg.write('@')
-        if i > 0:
-            pg.press('down')
-        pg.press('enter')
-        time.sleep(0.2)
+    try:
+        participantCount = int(npVariable.get())
+        for i in range(participantCount - 1):
+            pg.write('@')
+            if i > 0:
+                pg.press('down')
+            pg.press('enter')
+            time.sleep(0.2)
+    except:
+        print("Invalid Paricipant Count")
+        return
 
 
 
@@ -23,7 +28,7 @@ npVariable = tk.StringVar()
 
 label = tk.Label(windowMain, text="No of Participants")
 npEntry = tk.Entry(windowMain, textvariable=npVariable)
-btnTag = tk.Button(windowMain, text="Tag Everyone", command=autoTagger)
+btnTag = tk.Button(windowMain, text="Tag", command=autoTagger)
 btnTag.config(width=20, height=2)
 
 label.pack()
