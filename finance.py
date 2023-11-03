@@ -1,3 +1,10 @@
+# This is my personal finance management tool
+# IT works by reading my whatsapp chat history on which I have recorded my expenses
+# And then it will generate a excel file with the expenses exported from the chat so that I can track them easily
+# This is just a tool so that I don't have to bear the overhead or friction of listing my expenses on a separate app
+# The format of messages in the chat would be cost_of_item item_name eg: 70 coffee with each expense as a separate message
+
+
 import xlsxwriter
 
 expenses = []
@@ -23,6 +30,3 @@ for row, data in enumerate(expenses):
 
 worksheet.write(len(expenses) + 1, 0, f"Total {total_cost}")
 workbook.close()
-
-
-        
