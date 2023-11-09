@@ -1,7 +1,9 @@
 import pyautogui as pg
 import time
+import keyboard
 
-time.sleep(7)
+while keyboard.is_pressed('q') == False:
+    pass
 
 for i in range(14):
     pg.press('tab')

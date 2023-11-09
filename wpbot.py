@@ -2,24 +2,28 @@ import pyautogui as pg
 import time
 import os
 import tkinter as tk
+import keyboard
 
-#place the cursor in the whatsapp chat windows before executing the code
+# place the cursor in the whatsapp chat windows before executing the code
+
+
 def autoTagger():
 
-    time.sleep(5)
-    try:
-        participantCount = int(npVariable.get())
-        for i in range(participantCount - 1):
-            pg.write('@')
-            if i > 0:
-                pg.press('down')
-            pg.press('enter')
-            time.sleep(0.2)
-    except:
-        print("Invalid Paricipant Count")
-        return
-
-
+    while True:
+        if keyboard.is_pressed('q'):
+            pg.press('backspace')
+            try:
+                participantCount = int(npVariable.get())
+                for i in range(participantCount - 1):
+                    pg.write('@')
+                    if i > 0:
+                        pg.press('down')
+                    pg.press('enter')
+                    time.sleep(0.2)
+                return
+            except:
+                print("Invalid Paricipant Count")
+                return
 
 
 windowMain = tk.Tk(className=' Auto Tagger')
@@ -35,5 +39,3 @@ label.pack()
 npEntry.pack()
 btnTag.pack()
 windowMain.mainloop()
-
-
